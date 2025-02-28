@@ -17,7 +17,7 @@ const categories = ["All", "Electronics", "Fashion", "Home", "Books", "Beauty"];
 
 export default function ProductList() {
   const { data: products, isLoading } = useProducts();
-  const { darkMode } = useTheme(); // Get dark mode state
+  const { darkMode } = useTheme(); 
   const [category, setCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
@@ -37,7 +37,7 @@ export default function ProductList() {
 
   return (
     <Container sx={{ mt: 4 }}>
-      {/* Filters */}
+      
       <Box display="flex" justifyContent="space-between" alignItems="center" mb={3} gap={2}>
         <TextField
           select
@@ -71,7 +71,7 @@ export default function ProductList() {
         />
       </Box>
 
-      {/* Product Grid */}
+      
       <Grid container spacing={3}>
         {displayedProducts.map((product: Product) => (
           <Grid item xs={12} sm={6} md={4} key={product.id}>
@@ -80,7 +80,7 @@ export default function ProductList() {
         ))}
       </Grid>
 
-      {/* Pagination with Dark Mode Fix */}
+     
       {totalPages > 1 && (
         <Box display="flex" justifyContent="center" mt={4}>
           <Pagination
@@ -90,12 +90,12 @@ export default function ProductList() {
             color="primary"
             sx={{
               "& .MuiPaginationItem-root": {
-                color: darkMode ? "#FFD700" : "#000", // Light gold in dark mode
-                backgroundColor: darkMode ? "#333" : "transparent", // Dark background for visibility
+                color: darkMode ? "#FFD700" : "#000", 
+                backgroundColor: darkMode ? "#333" : "transparent", 
                 borderRadius: "8px",
               },
               "& .MuiPaginationItem-root.Mui-selected": {
-                backgroundColor: darkMode ? "#555" : "#1976d2", // Highlight selected page
+                backgroundColor: darkMode ? "#555" : "#1976d2", 
                 color: "#fff",
               },
               "& .MuiPaginationItem-root:hover": {
